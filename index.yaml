@@ -11,13 +11,13 @@ indexes:
 # your application using appcfg.py.
 
 # Unused in query history -- copied from input.
-- kind: AccessDestination
-  properties:
-  - name: counter
-    direction: desc
+#- kind: AccessDestination
+#  properties:
+#  - name: counter
+#    direction: desc
 
 # Unused in query history -- copied from input.
-- kind: AccessFrom
-  properties:
-  - name: counter
-    direction: desc
+#- kind: AccessFrom
+#  properties:
+#  - name: counter
+#    direction: desc

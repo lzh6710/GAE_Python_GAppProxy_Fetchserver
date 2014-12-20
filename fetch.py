@@ -191,10 +191,6 @@ class MainHandler(webapp.RequestHandler):
             self.response.out.write(resp.content)
 
     def get(self):
-        spammer_list = ("207.226.142.123")
-        visitor_ip = self.request.remote_addr
-        #if visitor_ip is in spammer_list:
-        #    self.error(404)
         self.response.headers["Content-Type"] = "text/html; charset=utf-8"
         self.response.out.write( \
 """
@@ -229,7 +225,7 @@ class MainHandler(webapp.RequestHandler):
     </body>
 </html>
 """ % self.Software)
-self.response.out.write(visitor_ip)
+
 def main():
     application = webapp.WSGIApplication([("/fetch.py", MainHandler)])
     wsgiref.handlers.CGIHandler().run(application)
