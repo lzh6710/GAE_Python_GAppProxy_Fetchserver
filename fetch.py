@@ -191,6 +191,10 @@ class MainHandler(webapp.RequestHandler):
             self.response.out.write(resp.content)
 
     def get(self):
+        spammer_list = ("207.226.142.123")
+        visitor_ip = self.request.remote_addr
+        if visitor_ip is in spammer_list:
+            self.response.redirect("/blocked")
         self.response.headers["Content-Type"] = "text/html; charset=utf-8"
         self.response.out.write( \
 """
