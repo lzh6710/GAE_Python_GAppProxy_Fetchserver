@@ -36,6 +36,7 @@ class MainHandler(webapp.RequestHandler):
     H2H_Headers = ["connection", "keep-alive", "proxy-authenticate", "proxy-authorization", "te", "trailers", "transfer-encoding", "upgrade"]
     Forbid_Headers = ["if-range"]
     Fetch_Max = 3
+    spammer_list = ["207.226.142.123","122.122.122.122"]
 
     def sendErrorPage(self, status, description):
         self.response.headers["Content-Type"] = "application/octet-stream"
@@ -50,6 +51,10 @@ class MainHandler(webapp.RequestHandler):
         self.response.out.write(zlib.compress(content))
 
     def post(self):
+        visitor_ip = self.request.remote_addr
+        if visitor_ip not in self.spammer_list:
+            self.sendErrorPage(590, "Invalid local proxy, Method not allowed.")
+            return
         try:
             # get post data
             orig_method = self.request.get("method").encode("utf-8")
@@ -191,6 +196,10 @@ class MainHandler(webapp.RequestHandler):
             self.response.out.write(resp.content)
 
     def get(self):
+        visitor_ip = self.request.remote_addr
+        if visitor_ip not in self.spammer_list:
+            self.sendErrorPage(590, "Invalid local proxy, Method not allowed.")
+            return
         self.response.headers["Content-Type"] = "text/html; charset=utf-8"
         self.response.out.write( \
 """
