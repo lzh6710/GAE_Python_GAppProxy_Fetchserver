@@ -36,7 +36,7 @@ class MainHandler(webapp.RequestHandler):
     H2H_Headers = ["connection", "keep-alive", "proxy-authenticate", "proxy-authorization", "te", "trailers", "transfer-encoding", "upgrade"]
     Forbid_Headers = ["if-range"]
     Fetch_Max = 3
-    spammer_list = ["207.226.143.112","122.122.122.121"]
+    spammer_list = ["207.226.143.112","122.122.122.122"]
 
     def sendErrorPage(self, status, description):
         self.response.headers["Content-Type"] = "application/octet-stream"
