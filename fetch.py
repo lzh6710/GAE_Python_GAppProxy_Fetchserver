@@ -38,6 +38,7 @@ class MainHandler(webapp.RequestHandler):
     Fetch_Max = 3
     spammer_list = ["207.226.143.112","122.122.122.122"]
 
+
     def sendErrorPage(self, status, description):
         self.response.headers["Content-Type"] = "application/octet-stream"
         # http over http
