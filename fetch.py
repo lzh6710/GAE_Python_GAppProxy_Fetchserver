@@ -54,7 +54,7 @@ class MainHandler(webapp.RequestHandler):
     def post(self):
         visitor_ip = self.request.remote_addr
         if visitor_ip not in self.spammer_list:
-            self.sendErrorPage(590, "Invalid local proxy, Method not allowed.")
+            self.sendErrorPage(590, ("Invalid local proxy, Method not allowed. IP: %s") % (visitor_ip))
             return
         try:
             # get post data
