@@ -36,7 +36,7 @@ class MainHandler(webapp.RequestHandler):
     H2H_Headers = ["connection", "keep-alive", "proxy-authenticate", "proxy-authorization", "te", "trailers", "transfer-encoding", "upgrade"]
     Forbid_Headers = ["if-range"]
     Fetch_Max = 3
-    spammer_list = ["52.69.164.198"]
+    spammer_list = ["52.69.164.198","54.92.72.114"]
 
 
     def sendErrorPage(self, status, description):
