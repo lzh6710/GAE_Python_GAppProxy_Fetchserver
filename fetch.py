@@ -33,7 +33,7 @@ from google.appengine.api import urlfetch_errors
 class MainHandler(webapp.RequestHandler):
     Software = "GAppProxy/2.0.0"
     # hop to hop header should not be forwarded
-    H2H_Headers = ["connection", "keep-alive", "proxy-authenticate", "proxy-authorization", "te", "trailers", "transfer-encoding", "upgrade"]
+    H2H_Headers = ["connection", "Accept-Encoding", "keep-alive", "proxy-authenticate", "proxy-authorization", "te", "trailers", "transfer-encoding", "upgrade"]
     Forbid_Headers = ["if-range"]
     Fetch_Max = 3
     spammer_list = ["52.69.164.198","54.92.72.114"]
